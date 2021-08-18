@@ -1,0 +1,47 @@
+  GNU nano 2.7.4                                                                        File: parallel-Extract-vars-Set00.sbatch                                                                                   
+
+#!/bin/bash
+#SBATCH --output=ExtractVars_set-00_%a.out
+#SBATCH --error=ExtractVars_set-00_%a.err
+#SBATCH --mail-type=ALL
+#SBATCH --time=72:00:00
+#SBATCH --nodes=1
+###SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=2
+#SBATCH --exclusive
+#SBATCH --account=ac_fishes
+#SBATCH -p savio3
+
+# Load the default version of GNU parallel.
+module load gnu-parallel
+module load java
+
+REF='/global/scratch/austinhpatton/cichlids/Oreochromis-Reference/Oreochromis.fna'
+INTERIM='/global/scratch/austinhpatton/cichlids/cameroon/Interim-BQSR/'
+bamDir='/global/scratch/austinhpatton/cichlids/cameroon/preProcessing/mappedBams/'
+gatkOut='/global/scratch/austinhpatton/cichlids/cameroon/gatk-output/bqsr-prep/'
+
+gatk="/global/home/users/austinhpatton/software/gatk-4.1.8.1/gatk"
+
+# set number of jobs based on number of cores available and number of threads per job
+export JOBS_PER_NODE=$(( $SLURM_CPUS_ON_NODE / $SLURM_CPUS_PER_TASK ))
+
+#echo $SLURM_JOB_NODELIST |sed s/\,/\\n/g > hostfile
+
+# markdup-set-00 contains a reduced list of "markdup.bam"s to be run. 
+# "ChromNames.txt" is a list of the 22 long, roughly chromosome length scaffolds in the reference. 
+# By feeding these to parallels, we conduct a scatter-call operation with GATK.
+# In other words, we loop through samples, calculating genotype likelihoods for long scaffolds in parallel. 
+# Together, this expedites the genotyping process. 
+for samp in $(cat markdup-set-00)
+do
+  	id=$(echo $samp | sed 's/_markdup.bam//g')
+        parallel \
+        --jobs $JOBS_PER_NODE \
+        --joblog extractVars-out/extract-vars-${id}.log \
+        --resume --progress \
+        -a ChromNames.txt ./GATK-Extract-VarsByChrom.sh {} $id $SLURM_CPUS_PER_TASK
+done
+
+
+
