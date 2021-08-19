@@ -26,12 +26,14 @@ export JOBS_PER_NODE=$(( $SLURM_CPUS_ON_NODE / $SLURM_CPUS_PER_TASK ))
 
 #echo $SLURM_JOB_NODELIST |sed s/\,/\\n/g > hostfile
 
+# Assuming this is being run in the same directory as ChromNames.txt and the shell script. 
+
 for samp in $(cat ../bam-sets/bqsr-bams-set-00)
 do
 	id=$(echo $samp | sed 's/_BQSR.bam//g')
 	parallel \
 	--jobs $JOBS_PER_NODE \
-	--joblog ../extractVars-out/extract-vars-${id}.log \
+	--joblog ./extractVars-out/extract-vars-${id}.log \
 	--resume --progress \
-	-a ../ChromNames.txt ../GATK-Extract-VarsByChrom.sh {} $id $SLURM_CPUS_PER_TASK
+	-a ./ChromNames.txt ./GATK-Extract-VarsByChrom.sh {} $id $SLURM_CPUS_PER_TASK
 done
