@@ -1,4 +1,9 @@
 #!/usr/bin/
+# Full pipeline for everything from read merging, 
+# trimming, mapping to a reference, sorting resultant 
+# bam files, and marking/removing PCR duplicates.
+
+
 #bwa reference-based assembly illumina Paired End WGS data
 
 from os.path import join as jp
