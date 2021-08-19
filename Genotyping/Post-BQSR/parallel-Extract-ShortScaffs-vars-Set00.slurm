@@ -25,6 +25,6 @@ export JOBS_PER_NODE=$(( $SLURM_CPUS_ON_NODE / $SLURM_CPUS_PER_TASK ))
 
 parallel \
 	--jobs $JOBS_PER_NODE \
-	--joblog ../extractVars-out/extract-vars-BQSR-00-short.log \
+	--joblog ./extractVars-out/extract-vars-BQSR-00-short.log \
 	--resume --progress \
-	-a ../bam-sets/bqsr-samp-set-00 ../GATK-Extract-VarsByScaff.sh {} $SLURM_CPUS_PER_TASK
+	-a ./bam-sets/bqsr-samp-set-00 ./GATK-Extract-VarsByScaff.sh {} $SLURM_CPUS_PER_TASK
