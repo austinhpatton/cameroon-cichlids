@@ -18,13 +18,6 @@
 module load gnu-parallel
 module load java 
 
-REF='/global/scratch/austinhpatton/cichlids/Oreochromis-Reference/Oreochromis.fna'
-INTERIM='/global/scratch/austinhpatton/cichlids/cameroon/Interim-BQSR/'
-bamDir='/global/scratch/austinhpatton/cichlids/cameroon/preProcessing/mappedBams/'
-gatkOut='/global/scratch/austinhpatton/cichlids/cameroon/gatk-output/bqsr-prep/'
-
-gatk="/global/home/users/austinhpatton/software/gatk-4.1.8.1/gatk"
-
 # set number of jobs based on number of cores available and number of threads per job
 export JOBS_PER_NODE=$(( $SLURM_CPUS_ON_NODE / $SLURM_CPUS_PER_TASK ))
 
