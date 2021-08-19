@@ -162,8 +162,13 @@ $gatk SelectVariants -V $INTERIM/bqsr1-joint-gt-BM-cichlids.vcf.gz -select-type 
 
 # Hard filter the SNPs
 echo "Hard filtering SNPs"
-$gatk VariantFiltration -R $REF -V $INTERIM/BM-cichlids_bqsr1_snps_init.vcf.gz -O $INTERIM/bqsr1-BM-cichlids-filteredSNPS.vcf.gz -filter "QD < 2.0" --filter-name "QD2" -filter "QUAL < 30.0" --filter-name "QUAL30" -filter "SOR > 3.0" --filter-name "SOR3" -filter "FS > 60.0" --filter-name "FS60" -filter "MQ < 40.0" --filter-name "MQ40" -filter "MQRankSum < -12.5" --filter-name "MQRankSum-12.5" -filter "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" >& $INTERIM/BM-cichlids-bqsr1-filter-raw-snps.out
+$gatk VariantFiltration -R $REF -V $INTERIM/BM-cichlids_bqsr1_snps_init.vcf.gz -O $INTERIM/bqsr1-BM-cichlids-filteredSNPS.vcf.gz \
+	-filter "QD < 2.0" --filter-name "QD2" -filter "QUAL < 30.0" --filter-name "QUAL30" -filter "SOR > 3.0" --filter-name "SOR3" \
+	-filter "FS > 60.0" --filter-name "FS60" -filter "MQ < 40.0" --filter-name "MQ40" -filter "MQRankSum < -12.5" --filter-name "MQRankSum-12.5" \
+	-filter "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" >& $INTERIM/BM-cichlids-bqsr1-filter-raw-snps.out
 
 # Hard filter the indels
 echo "Hard filtering INDELs"
-$gatk VariantFiltration -R $REF -V $INTERIM/BM-cichlids_bqsr1_indels_init.vcf.gz -O $INTERIM/bqsr1-BM-cichlids_filtered_indels.vcf.gz -filter "QD < 2.0" --filter-name "QD2" -filter "QUAL < 30.0" --filter-name "QUAL30" -filter "FS > 200.0" --filter-name "FS200" -filter "ReadPosRankSum < -20.0" --filter-name "ReadPosRankSum-20" >& $INTERIM/BM-cichlids-bqsr1-filter-raw-indels.out
+$gatk VariantFiltration -R $REF -V $INTERIM/BM-cichlids_bqsr1_indels_init.vcf.gz -O $INTERIM/bqsr1-BM-cichlids_filtered_indels.vcf.gz \
+	-filter "QD < 2.0" --filter-name "QD2" -filter "QUAL < 30.0" --filter-name "QUAL30" -filter "FS > 200.0" --filter-name "FS200" \
+	-filter "ReadPosRankSum < -20.0" --filter-name "ReadPosRankSum-20" >& $INTERIM/BM-cichlids-bqsr1-filter-raw-indels.out
