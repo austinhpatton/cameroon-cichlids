@@ -10,6 +10,13 @@
 #SBATCH --account=ac_fishes
 #SBATCH -p savio3
 
+# This is one of several parallel submission scripts used to submit "GATK-Extract-LongScaffs.sh". 
+# Several of these scripts were used, each on "markdup-set-XX", each including a different set of samples. 
+# In an unconstrained cluster, this could be used on the full set of samples, but I needed to break these 
+# up so that they would finish within 72 hours and also to navigate computational (i.e. memory) limitations. 
+# In short, this script loops through samples, calculating genotype likelihoods for the long-scaffolds 
+# in "ChromNames.txt" in parallel. Embarrassingly parallel.
+
 # Load the default version of GNU parallel.
 module load gnu-parallel
 module load java
