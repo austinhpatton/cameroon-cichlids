@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Bash script to combine the per-region gvcfs per individual. 
+# This is submitted via gnu-parallel, where the parallel threads are per individual.
+
+
 module load java
 
 /global/home/users/austinhpatton/software/gatk-4.1.8.1/gatk --java-options "-Xmx5G" GatherVcfs \
