@@ -9,6 +9,11 @@
 #SBATCH --account=ac_fishes
 #SBATCH -p savio3
 
+# Interpretation/functionality is the same as in parallel-GATK-Extract-LongScaffs-vars-Set00.slurm.
+# Difference is, here we do not loop through samples, running scaffolds in parallel. Here, we analyze 
+# all short scaffolds together, running samples in parallel. 
+# Again, this is really to circumvent the 72 hour limit on savio compute times. 
+
 # Load the default version of GNU parallel.
 module load gnu-parallel
 module load java 
