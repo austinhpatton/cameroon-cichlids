@@ -1,5 +1,3 @@
-  GNU nano 2.7.4                                                                        File: parallel-Extract-vars-Set00.sbatch                                                                                   
-
 #!/bin/bash
 #SBATCH --output=ExtractVars_set-00_%a.out
 #SBATCH --error=ExtractVars_set-00_%a.err
