@@ -7,6 +7,11 @@
 #SBATCH -p savio3
 #SBATCH --account=ac_fishes
 
+# This submits the preprocessing pipeline in parallel as an array job. 
+# In reality, due to computational limitations on the savio cluster 
+# (hard limit to runtimes of 72 hours, the list of samples would need 
+# to be broken up more than this, as otherwise it would time out.
+
 module load python
 module load samtools
 module load bcftools
