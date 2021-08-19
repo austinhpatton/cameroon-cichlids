@@ -1,6 +1,9 @@
 #!/bin/bash
 module load java
 
+# This script is to be submitted via a gnu-parallel submission (included in this repository). 
+# This conducted the first round of genotyping to build our base score quality recalibration model with.
+
 # $1 is the scaffold used as input, $2 is the sample, $3 is the number of threads used, as determined 
 # in the associated slurm script. 
 
