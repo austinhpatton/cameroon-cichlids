@@ -4,7 +4,6 @@
 #SBATCH --mail-type=ALL
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
-###SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=2
 #SBATCH --exclusive
 #SBATCH --account=ac_fishes
