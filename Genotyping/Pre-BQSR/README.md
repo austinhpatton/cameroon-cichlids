@@ -15,3 +15,5 @@ Scripts are ran as follows:
 6) GATK-ExtractFilter-Variants.slurm will take the combined, joint genotyped VCF and pull out indels and snps, and hard filter them
 7) GATK-RecalModel-Parallel.slurm runs GATK-BaseRecalibrator.sh to build BQSR models for all samples in parallel
 8) GATK-ApplyBQSR-Parallel.slurm applies that BQSR model using GATK-ApplyBQSR.sh to spit out a recalibrated bam for each sample
+
+Then, you repeat 1-6 and voila, you've got a set of variants based on recalibrated base quality scores!
