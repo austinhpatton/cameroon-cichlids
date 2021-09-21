@@ -10,6 +10,10 @@
 #SBATCH --account=fc_fishes
 #SBATCH -p savio3
 
+# This script generates a genomic database for each scaffold, so that joint genotyping will be done per scaffold. 
+# This is in some ways a bit more involved, but makes the joint genotyping go much more quickly, and also means that 
+# we can avoid using GatherGVCFs, which crawls at a snails pace, to bring the scatter calls together. 
+
 id=$SLURM_ARRAY_TASK_ID
 scaff=$(sed "${id}q;d" regions.txt)
 region=$(sed "${id}q;d" regions.txt)
@@ -25,6 +29,8 @@ fi
 module load java
 
 /global/home/users/austinhpatton/software/gatk-4.1.8.1/gatk --java-options "-Xmx5G" GenomicsDBImport -L ${region} \
+	-V /global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/PerScaff/Ckot383_L002/Ckot383_L002-${scaff}_raw_variants.g.vcf.gz \
+	-V /global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/PerScaff/Ckot499_L002/Ckot499_L002-${scaff}_raw_variants.g.vcf.gz \
 	-V /global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/PerScaff/CAR152_L004/CAR152_L004-${scaff}_raw_variants.g.vcf.gz \
 	-V /global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/PerScaff/CAR389_L001/CAR389_L001-${scaff}_raw_variants.g.vcf.gz \
 	-V /global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/PerScaff/DIK101_L004/DIK101_L004-${scaff}_raw_variants.g.vcf.gz \
