@@ -16,10 +16,10 @@ module load bwa
 module load java
 
 REF='/global/scratch/users/austinhpatton/cichlids/Oreochromis-Reference-2018/GCF_001858045.2_O_niloticus_UMD_NMBU_genomic.fa'
-FINAL='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/PreBQSR'
+FINAL='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR'
 bamDir='/global/scratch/users/austinhpatton/cichlids/cameroon/preProcessing/mappedBams_OnilUMD/'
 gatkOut='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/gatk-output/pre-bqsr'
-OUT='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/PreBQSR/Genotyped'
+OUT='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/Genotyped'
 
 id=$SLURM_ARRAY_TASK_ID
 scaff=$(sed "${id}q;d" DBs-To-Genotype.txt)
