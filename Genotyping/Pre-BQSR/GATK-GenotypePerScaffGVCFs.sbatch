@@ -9,16 +9,9 @@
 #SBATCH --account=fc_fishes
 #SBATCH -p savio3
 
-module load python
-module load samtools
-module load bcftools
-module load bwa 
 module load java
 
 REF='/global/scratch/users/austinhpatton/cichlids/Oreochromis-Reference-2018/GCF_001858045.2_O_niloticus_UMD_NMBU_genomic.fa'
-FINAL='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR'
-bamDir='/global/scratch/users/austinhpatton/cichlids/cameroon/preProcessing/mappedBams_OnilUMD/'
-gatkOut='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/gatk-output/pre-bqsr'
 OUT='/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/PreBQSR/Genotyped'
 
 id=$SLURM_ARRAY_TASK_ID
