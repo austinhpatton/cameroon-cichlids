@@ -84,7 +84,10 @@ alphaHigh = 2 * N0 * sHigh
 sizeChanges_1, Ne1_curr = get_pophist(popsize_1)
 sizeChanges_2, Ne2_curr = get_pophist(popsize_2)
 # calculate ancestral population size as the mean of the oldest pop sizes for each species
-Ne_anc = mean(sizeChanges_1[16][2], sizeChanges_2[16][2]
+Ne_anc = mean(sizeChanges_1[16][2], sizeChanges_2[16][2])
+# calculate population-wide Ne at present as the sum of the oldest pop sizes for each species
+N0 = sizeChanges_1[0][2] + sizeChanges_2[0][2]
+
 
 
 params = read_params(param_file, pops)
@@ -93,12 +96,6 @@ tsplit_cl = params["TDIV_cl"] / (4*N0)
 tcol = params["TDIV_col"] / (4*N0)
 tsplit_gl = params["TDIV_gl"] / (4*N0)
 tchange = params["TCHANGE_pop1"] / (4*N0)
-mig_cl = params["MIG_cl"] * 4 * N0
-mig_gl = params["MIG_gl"] * 4 * N0
-growth1 = math.log(params["NPOPpop1"] / params["NPOP1pop1"]) / tchange
-growth2 = math.log(params["NPOPpop2"] / params["NPOP0pop2"]) / tsplit_gl
-growth3 = math.log(params["NPOPpop3"] / params["NPOP0pop3"]) / tcol
-growth4 = math.log(params["NPOPpop4"] / params["NPOP0pop4"]) / tsplit_cl
 
 sharedSelStr = "-Sc 0 1 tbs tbs 0 -Sc 0 2 tbs tbs 0 -SI {} 2 0 0 tbs tbs -Sp tbs -SFC -oTrace -oOC".format(tadmix)
 indepSelStr = "-Sc 0 1 tbs tbs 0 -Sc 0 2 tbs tbs 0 -SI {} 2 0 0 tbs tbs -Sp tbs -SFC -oTrace -oOC".format(tsplit_cl)
