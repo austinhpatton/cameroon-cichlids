@@ -1,6 +1,6 @@
 # GATK
 
-### Genotyping and Base Quality Score Recalibration
+## Genotyping and Base Quality Score Recalibration
 
 This folder contains all scripts used for the first round of genotyping as well as base quality score recalibration. 
 
@@ -10,7 +10,7 @@ be done using a complete set of samples.
 
 There are unfortunately more steps doing it this way, although it is substantially more efficient!
 
-Scripts are ran as follows:
+### Scripts are ran as follows:
 1) parallel-GATK-Extract-LongScaffs-vars-Set00.slurm is used to submit GATK-Extract-VarsByLongScaff.sh using gnu-parallel
 2) parallel-GATK-Extract-ShortScaffs-vars-Set00.slurm is used to submit GATK-Extract-VarsByShortScaff.sh using gnu-parallel
 3) DBImport-ByScaff.slurm generates a genomic database per scaffold/chromosome for more efficient joint genotyping 
