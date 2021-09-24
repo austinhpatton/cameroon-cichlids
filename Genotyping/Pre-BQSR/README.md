@@ -1,3 +1,7 @@
+# GATK
+
+### Genotyping and Base Quality Score Recalibration
+
 This folder contains all scripts used for the first round of genotyping as well as base quality score recalibration. 
 
 Note that many of these scripts are parallelized in a manner to circumvent the wall time limit (72 hrs) imposed by the savio cluster. 
