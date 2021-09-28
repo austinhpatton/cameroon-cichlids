@@ -1,0 +1,11 @@
+Kdik-HighCov
+Keis-HighCov
+Mmya-HighCov
+Spin-10X_L007
+Smon-HighCov
+Smar-HighCov
+Pmac-HighCov
+Sgal-CRM-HighCov
+Sgal-Meme-HighCov
+Sgal-Mongo-HighCov
+Scar-HighCov
