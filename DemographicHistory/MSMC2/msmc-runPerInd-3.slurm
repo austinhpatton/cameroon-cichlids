@@ -24,13 +24,13 @@ samp=$(sed "${id}q;d" msmc-samps.txt)
 # This script will run an MSMC analysis per-individual via an array job
 
 # First, list all per-scaffold multihetsep files per individual to a file
-#ls $msmcIn/${samp}*msmc-multihetsep.txt > $msmcIn/${samp}-AllInput
+ls $msmcIn/${samp}*msmc-multihetsep.txt > $msmcIn/${samp}-AllInput
 
 # And concatenate these into a single file to estimatejoint demography from all chromosomes
-#for scaff in $(cat $msmcIn/${samp}-AllInput)
-#do 
-#	cat $scaff >> $msmcIn/${samp}-AllInput-multihetsep.txt
-#done
+for scaff in $(cat $msmcIn/${samp}-AllInput)
+do 
+	cat $scaff >> $msmcIn/${samp}-AllInput-multihetsep.txt
+done
 
 # Now run MSMC2
 $msmc2 -t 30 -p 1*2+22*1+1*2+1*2 -i 50 -o $msmcOut/$samp -I 0,1 $msmcIn/${samp}*msmc-multihetsep.txt
