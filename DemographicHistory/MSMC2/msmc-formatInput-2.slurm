@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --output=format.msmc_%A_%a.out
-#SBATCH --error=format.msmc_%A_%a.err
+#SBATCH --output=./err-out/format.msmc_%A_%a.out
+#SBATCH --error=./err-out/format.msmc_%A_%a.err
 #SBATCH --mail-type=ALL
 #SBATCH --time=72:00:00
 #SBATCH --array=1-11
