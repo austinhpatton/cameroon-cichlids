@@ -12,9 +12,10 @@
 module load msmc2
 module load python/3.7
 
-MSMCTOOLS="/global/scratch/users/austinhpatton/software/msmc-tools"
+MSMCTOOLS=/global/scratch/users/austinhpatton/software/msmc-tools
 msmcIn=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/MSMC/Input
 bootDir=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/MSMC/Bootstrap
+msmc2=/global/scratch/users/austinhpatton/software/msmc2-2.1.3/build/release/msmc2
 
 id=$SLURM_ARRAY_TASK_ID
 samp=$(sed "${id}q;d" msmc-samps.txt)
@@ -31,10 +32,11 @@ $MSMCTOOLS/multihetsep_bootstrap.py -n 50 -s 2272727 --chunks_per_chromosome 20 
 # Now, run MSMC, looping through bootstraps
 for i in {1..50}
 do
-	# Now, run MSMC
-	# Set a meaningful output name
-	msmcOut="${samp}_bootstrap_${i}"
-	echo "Beginning bootstrapping procedure for ${samp}, iteration $i"
-	~/software/msmc2-2.1.3/build/release/msmc2 -t 30 -p 1*2+18*1+1*2+1*3 -i 50 -I 0,1 -o $bootDir/${samp}.bootstrap_${i}/$msmcOut $bootDir/${samp}*_${i}/*
+  	# Now, run MSMC
+        # Set a meaningful output name
+        msmcOut="${samp}_bootstrap_${i}"
+        echo "Beginning bootstrapping procedure for ${samp}, iteration $i"
+        $msmc2 -t 30 -p 1*2+18*1+1*2+1*3 -i 50 -I 0,1 -o $bootDir/${samp}.bootstrap_${i}/$msmcOut $bootDir/${samp}*_${i}/*
 done
+
 
