@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --output=bs.msmc_%A_%a.out
-#SBATCH --error=bs.msmc_%A_%a.err
+#SBATCH --output=./err-out/bs.msmc_%A_%a.out
+#SBATCH --error=./err-out/bs.msmc_%A_%a.err
 #SBATCH --time=72:00:00
 #SBATCH --array=1-11
 #SBATCH --ntasks-per-node=1
