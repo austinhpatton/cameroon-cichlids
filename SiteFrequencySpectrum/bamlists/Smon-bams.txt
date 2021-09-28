@@ -1,0 +1,15 @@
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON012_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON013_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON015_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON016_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON021_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON100_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON103_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON104_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON105_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON106_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON107_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON108_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/MON109_L004_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/Smon-HighCov_BQSR.bam
+/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/GATK/RecalBams/Smon001_L005_BQSR.bam
