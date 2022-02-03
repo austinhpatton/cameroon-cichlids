@@ -10,8 +10,9 @@
 #SBATCH --account=fc_fishes
 #SBATCH -p savio3
 
-# This script will loop through the high-coverage samples, mapping reads
-# using bcftools in preparation for use with MSMC. 
+# This script will loop through the per-scaffold vcfs for high-coverage samples, 
+# converting vcfs to the input format ('multihetsep') for MSMC. 
+# This is done in parallel such that each sample is being processed simultaneously
 
 module load bcftools
 module load samtools
@@ -27,7 +28,7 @@ maskDir=/global/scratch/users/austinhpatton/cichlids/Oreochromis-Reference-2018/
 msmcIn=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/MSMC/Input
 msmcSnps=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/SamtoolsGenotypes
 
-#Now, we need to call snps for each linkage group
+# Loop through each linkage group
 for scaff in $(cat ChromNames.txt)
 do 
 	echo "Converting $scaff to multihetsep"
