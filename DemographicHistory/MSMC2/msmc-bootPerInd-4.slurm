@@ -12,6 +12,9 @@
 module load msmc2
 module load python/3.7
 
+# This script will run the MSMC2 bootstrapping analyses for the high-coverage 
+# samples in parallel as an array job
+
 MSMCTOOLS=/global/scratch/users/austinhpatton/software/msmc-tools
 msmcIn=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/MSMC/Input
 bootDir=/global/scratch/users/austinhpatton/cichlids/cameroon/Onil_UMD/MSMC/Bootstrap
