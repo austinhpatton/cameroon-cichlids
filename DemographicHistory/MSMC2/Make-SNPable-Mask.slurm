@@ -26,17 +26,17 @@ cd /global/scratch/users/austinhpatton/cichlids/Oreochromis-Reference-2018/
 seqbility="/global/scratch/users/austinhpatton/software/seqbility-20091110"
 
 # Extract overlapping kmer subsequences as reads
-#$seqbility/splitfa $REF 50 | split -l 20000000
+$seqbility/splitfa $REF 50 | split -l 20000000
 
 # This splits the "reads into a bunch of files. Combine into a single "read" file and clean up
-#cat x* > split-fa-reads.fa
-#rm x* 
+cat x* > split-fa-reads.fa
+rm x* 
 
 # Now map these "Reads" back to the genome
-#bwa aln -t 30 -R 1000000 -O 3 -E 3 $REF split-fa-reads.fa > split-fa-reads.sai  
+bwa aln -t 30 -R 1000000 -O 3 -E 3 $REF split-fa-reads.fa > split-fa-reads.sai  
 
 # Convert to sam
-#bwa samse -f split-fa-reads.sam $REF split-fa-reads.sai split-fa-reads.fa
+bwa samse -f split-fa-reads.sam $REF split-fa-reads.sai split-fa-reads.fa
 
 # Generate the raw mask from the unsorted sam index 
 gzip split-fa-reads.sam
