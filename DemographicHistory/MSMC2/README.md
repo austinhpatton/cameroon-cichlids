@@ -1,4 +1,4 @@
-# MSMC2 Presp & Analysis Scripts
+# MSMC2 Prep & Analysis Scripts
 
 ## This directory holds a number of scripts to be run in order. A description of the steps are outlined below. 
 
